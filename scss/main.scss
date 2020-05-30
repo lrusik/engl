@@ -1,0 +1,494 @@
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+//
+// Grid mixins
+//
+
+@import "bootstrap/mixins/breakpoints";
+
+
+// including variables and mixins
+@import "theme/variables";
+@import "theme/mixins";
+@import "theme/flexbox";
+@import "theme/reset";
+
+
+// Custom Scss 
+@import "theme/elements";
+@import "theme/header";
+@import "theme/home";
+@import "theme/footer";
+@import "theme/_variables.scss";
+
+.about-image {
+	max-height: 500px;
+	padding:  0;
+	width: 85%;
+}
+
+.counter {
+	font-weight: 300 !important;
+}
+
+.opbgc {
+	background: $opbgc;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+input, 
+textarea {
+	font-size: 16px;
+	background-color:rgba($white, .2) !important;
+}
+
+.fw300 {
+	font-weight: 300 !important;
+}
+
+.feature-area .icon {
+	min-height: 150px;
+}
+
+
+
+
+.hauto {
+	height: 100vh !important;
+}
+
+.white {
+	background-color: $white;
+}
+
+
+.feature-area {
+	.icon {
+		padding: 0;
+	 	img {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+	}
+
+	&__title {
+		color: white;
+		text-align: center;
+		font-size: 40px;
+		z-index: 1;
+		position: relative;
+		padding-bottom: 30px;
+	}
+	
+	&__desc {
+		padding-bottom: 45px;
+	}
+
+	.single-feature {
+		position: relative;
+	}
+
+	.price {
+		text-align: center;
+		font-size: 15px;
+		color: black;
+		display: block;
+		margin-top: 30px;
+		position: absolute;
+		bottom: 20px;
+		left: 50%;
+		transform: translateX(-50%);
+		white-space: nowrap;
+		color: $white;
+	}
+}
+
+.red {
+	background-color: red;
+}
+
+.dib {
+	display: inline-block;
+}
+
+.curp {
+	cursor: pointer;
+}
+
+.main-menubar {
+	user-select: none;
+}
+
+.mcenter {
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.about-area {
+	p {
+		margin: 0;
+		display: block;
+	}
+}
+
+.mt-30 {
+	margin-top: 30px;
+}
+
+.dot {
+	content: '';
+	width: 7px;
+	height: 7px;
+	margin-bottom: 1px;
+	margin-right: 2px;
+	display: inline-block;
+	border-radius: 50%;
+	background-color: $primary;
+}
+
+.single-facts__icon {
+	display: inline-block;
+	img {
+		display: inline-block;
+		height: 90px;	
+	}
+}
+
+.reviews {
+	padding: 70px 0;
+	background-color: $white;
+	
+	&__inner {
+		padding: 0 30px;
+	}
+
+	&__item {
+		display: block;
+		text-align: center;
+		padding: 0 30px;
+		
+		img {
+			display: block;
+			width: 180px;
+			height: 180px;
+			border-radius: 50%;
+			margin: 0 auto 30px auto;
+		}
+	}
+	
+	&__content {
+		position: relative;
+	}
+
+	&__stat {
+		position: absolute;
+		bottom: 10px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	p {
+		margin: 0;
+		margin-bottom: 5px;
+	}
+	
+	a {
+		position: relative;
+		text-decoration: underline;
+		padding: 3px;
+
+		&:after {
+			position: absolute;
+			width: 200px;
+			height: 1px;
+			background-color: #cfcfcf;
+			content: '';
+			display: block;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+
+		}
+	}
+	
+	&__name {
+		color: $primary;
+		margin-top: 5px;
+		font-size: 17px;
+		padding-bottom: 50px;
+	}
+
+}
+
+.contact-area {
+	.select {
+		display: block;
+		background-color: red;
+	}
+
+	option {
+		width: 100%;
+		display: block;
+		background-color: blue;
+	}
+
+}
+
+
+/*the container must be positioned relative:*/
+.custom-select {
+	position: relative;
+	font-family: Arial;
+	width: 100%;
+	font-size: 16px;
+	height: 48px;
+	background-color: transparent;
+	border: 1px solid $border-color;
+	border-radius: 1px !important;	
+}
+
+.custom-select select {
+	display: none !important; /*hide original SELECT element:*/
+}
+
+.select-selected {
+	background-color:rgba($white, .2) !important;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.nice-select {
+	display: none;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+	position: absolute;
+	content: "";
+	top: calc(50% + 1px);
+	transform: translateY(-25%);
+	right: 8px;
+	width: 0;
+	height: 0;
+	border: 7px solid transparent;
+	border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+	border-color: transparent transparent #fff transparent;
+	top: 15px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,.select-selected {
+	color: #ffffff;
+	padding: 13px 20px;
+	border: 1px solid transparent;
+	border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	cursor: pointer;
+	user-select: none;
+}
+
+.genric-btn {
+	user-select: none;
+}
+
+
+/*style items (options):*/
+.select-items {
+	position: absolute;
+	background-color: rgba($border-color, 1) !important;
+	top: 100%;
+	left: 0;
+	right: 0;
+	z-index: 99;
+}
+
+.select-items div {
+	background-color: rgba(black, .1);
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+	display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.slick-dots {
+	left: 50% !important;
+	transform: translate(-50%,0)  !important;
+}
+
+.slick-arrow {
+	height: 30px !important;
+	width: 30px !important;
+}
+
+.slick-prev:before, 
+.slick-next:before {
+	content: ""  !important;
+  	font-size: 0 !important;
+  	color: $text-color !important;
+  	width: 20px !important;
+  	height: 20px !important;
+  	display: block !important;
+  	position: absolute;
+  	top: 50%;
+  	
+}
+
+.slick-prev:before {
+	border-left: 1px solid $text-color;
+	border-top: 1px solid $text-color;
+	transform: translate(-50%, -50%) rotate(-45deg);
+	left: 70%;
+}
+
+.slick-next:before {
+	border-right: 1px solid $text-color;
+	border-top: 1px solid $text-color;
+	transform: translate(-50%, -50%) rotate(45deg);	
+	left: 30%;
+}
+
+.rel {
+	position: relative;
+}
+
+.halfheight {
+	height: 50vh;
+}
+
+.dib {
+	display: inline-block;
+}
+
+
+.blog-post {
+	background-color: $white;
+	padding: 80px 0;
+}
+
+
+.blog {
+	background-color: $white;
+	padding: 80px 0;
+	.about-title {
+		
+	}
+	
+	.readmore {
+		display: inline-block;
+		color: $primary;
+		font-size: 17px;
+		position: relative;
+
+		&:after {
+			position: relative;
+			display: block;
+			content: '';
+			width: 100%;
+			height: 1px;
+			background-color: $primary;
+			bottom: 0;
+			left: 0;
+		}
+	}
+
+	&__item {
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+}
+
+.main-menubar {
+	a {
+		color: $black !important;
+	}
+}
+
+
+.srow {
+
+	position: relative;
+
+	&__col {
+		width: 50%;
+		&:first-child {
+			padding-right: 40px;
+		}
+	}
+}
+
+.thsad {
+	height: 100%;
+	position: absolute;
+	display: block;
+	content: '';
+	left: 50%;
+	top: 0;
+	
+	padding: 20px;
+	padding-top: 0;
+	&__image {
+		display: block;
+		height: 100%;
+		width: 100%;
+		background: url(../img/notredame.jpg) no-repeat center center / cover;	
+	}
+}
+
+@media screen and (max-width: 768px){
+
+	.about-area {
+		h2 {
+			text-align: center;
+		}
+	}
+
+	.srow {
+		&__col {
+			width: 100%;
+			&:first-child {
+				padding-right: 0;
+			}
+		}
+	}	
+
+	.thsad {
+		position: static;
+		height: 400px;
+		padding: 0;
+		margin-bottom: -40px;
+	}
+	
+	.mt-md {
+		margin-top: 60px;
+	}
+
+	.main-menubar {
+		a {
+			color: $white !important;
+		}
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.hauto {
+		height: auto !important;
+	}
+}
+
