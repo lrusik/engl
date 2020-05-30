@@ -2843,56 +2843,7 @@ textarea {
     color: #000 !important;
 }
 
-.srow {
-    position: relative;
-}
-
-.srow__col {
-    width: 50%;
-}
-
-.srow__col:first-child {
-    padding-right: 40px;
-}
-
-.thsad {
-    height: 100%;
-    position: absolute;
-    display: block;
-    content: '';
-    left: 50%;
-    top: 0;
-    padding: 20px;
-    padding-top: 0;
-}
-
-.thsad__image {
-    display: block;
-    height: 100%;
-    width: 100%;
-    background: url(../img/notredame.jpg) no-repeat center center/cover;
-}
-
 @media screen and (max-width: 768px) {
-    .about-area h2 {
-        text-align: center;
-    }
-
-    .srow__col {
-        width: 100%;
-    }
-
-    .srow__col:first-child {
-        padding-right: 0;
-    }
-
-    .thsad {
-        position: static;
-        height: 400px;
-        padding: 0;
-        margin-bottom: -40px;
-    }
-
     .mt-md {
         margin-top: 60px;
     }

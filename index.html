@@ -28,12 +28,69 @@
 	<link rel="stylesheet" href="css/nice-select.css">
 	<link rel="stylesheet" href="css/magnific-popup.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/main.css">
-
 		<!-- Add the slick-theme.css if you want default styling -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 	<!-- Add the slick-theme.css if you want default styling -->
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+	<link rel="stylesheet" href="css/main.css">
+	
+	<style type="text/css">
+.srow {
+	position: relative;
+}
+
+.srow__col {
+	width: 50%;
+}
+
+.srow__col:.srow__col {
+	padding-right: 40px;
+}
+
+.thsad {
+	height: 100%;
+	position: absolute;
+	display: block;
+	content: '';
+	left: 50%;
+	top: 0;
+	
+	padding: 20px;
+	padding-top: 0;
+}
+
+.thsad__image {
+	display: block;
+	height: 100%;
+	width: 100%;
+	background: url(img/notredame.jpg) no-repeat center center / cover;	
+}
+
+@media screen and (max-width: 768px){
+	.about-area h2 {
+		text-align: center;
+		
+	}
+
+	.srow__col {
+		width: 100%;
+	}
+	
+	.srow__col:first-child {
+		padding-right: 0;
+	}
+
+	.thsad {
+		position: static;
+		height: 400px;
+		padding: 0;
+		margin-bottom: -40px;
+	}
+
+}	
+	</style>
+	
 	</head>
 	<body>
 
@@ -92,8 +149,7 @@
 <!-- Start about Area -->
 <section class="about-area pt-100 pb-100" id='about'>
 	<div class="container">
-		<h2> Шарифа
-					<span>Ledill</span></h2>
+		<h2> Шарифа <span>Ledill</span></h2>
 		<div class="srow">
 			<div class="srow__col thsad">
 				<div class="thsad__image" ></div>
