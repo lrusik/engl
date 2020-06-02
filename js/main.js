@@ -2,9 +2,7 @@ const slidesToShow = 3;
 const slidesToScroll = 3    ;
 const slidesToShowMobile = 1;
 const slidesToScrollMobile = 1;
-const autoplaySpeed = 5000;
-
-
+const autoplaySpeed = 0;
 
 
 (function (root, smoothScroll) {
@@ -225,35 +223,60 @@ function check_if_email(str) {
     return (false);
 }
 
+function show(showClass) {
+    document.querySelector('.' + showClass).style.display = "block";
+}
+
+function showError(err) {
+    show(err);
+}
+
+function show_thankyou_note() {
+
+}
+
+function start_form_animation() {
+
+}
+
+function stop_form_animation() {
+
+}
+
+
 function sendForm(event) {
     event.preventDefault();
-    console.log( document.querySelector('.select-selected').innerText);
-
-    let url = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdfogzpcJWXMB_wCdbBvIsSHNeroCzOmGkX1PoY3gDaGFGwVw/formResponse";
-    let xhttp = new XMLHttpRequest();
-    let mail = document.querySelector("#email").value;
-    let name = document.querySelector("#name").value;
-    let product = document.querySelector(".select-selected").value;
-    let message = document.querySelector("#message").value;
     
-    if(name === "") {
+    start_form_animation();
+    setTimeout(() => {
+        stop_form_animation();
+        // hide form
+        show_thankyou_note();
+    }, Math.random() * 400 + 700)
+
+    const url = "/api/submit";
+    const xhttp = new XMLHttpRequest();
+    const phone = document.querySelector("#phone").value;
+    const name = document.querySelector("#name").value;
+    const service = document.querySelector(".select-selected").value;
+    const message = document.querySelector("#message").value;
+    
+    if(name == "") {
+        showError('error__name-req');
         return -1;
     }
 
-    if(mail === "") {
-        return -1;
-    }
-
-    if(!check_if_email(mail)) {
+    if(phone == "") {
+        showError('error__phone-req');
         return -1;
     }
 
     xhttp.open("POST", url, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("emailAddress=" + mail + "&entry.2109138769=" + name + " &entry.1400602646= " + message);
-    animate_form();
+    xhttp.send("phone=" + mail + "name=" + name + "service=" + name + " message= " + message);
 }
 
+ 
 $(document).ready(function(){
     document.addEventListener("click", closeAllSelect);
     someFunc();

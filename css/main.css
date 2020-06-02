@@ -2603,19 +2603,21 @@ textarea {
 .reviews__item {
     display: block;
     text-align: center;
-    padding: 0 30px;
-}
-
-.reviews__item img {
-    display: block;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    margin: 0 auto 30px auto;
+    height: 250px;
+    position: relative;
 }
 
 .reviews__content {
-    position: relative;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    padding: 0 30px;
+}
+
+.reviews__content p {
+    font-style: italic;
 }
 
 .reviews__stat {
@@ -2630,40 +2632,55 @@ textarea {
     margin-bottom: 5px;
 }
 
-.reviews a {
-    position: relative;
-    text-decoration: underline;
-    padding: 3px;
-}
-
-.reviews a:after {
-    position: absolute;
-    width: 200px;
-    height: 1px;
-    background-color: #cfcfcf;
-    content: '';
-    display: block;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .reviews__name {
+    text-align: left;
+    display: flex;
+    align-items: center;
     color: #A0522D;
-    margin-top: 5px;
     font-size: 17px;
-    padding-bottom: 50px;
+    margin-top: 5px;
+    margin-bottom: 50px;
+    margin-left: 13px;
+    position: relative;
+    font-weight: 500;
+}
+
+.reviews__name:after {
+    position: absolute;
+    width: 7px;
+    height: 1px;
+    display: block;
+    content: '';
+    top: 60%;
+    left: -10px;
+    background-color: #A0522D;
+    transform: translateY(-50%);
+}
+
+.reviews__icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+    content: '';
+    margin-left: 8px;
+}
+
+.reviews a:hover {
+    color: #A0522D;
 }
 
 .contact-area .select {
     display: block;
-    background-color: red;
 }
 
 .contact-area option {
     width: 100%;
     display: block;
-    background-color: blue;
+}
+
+.contact__title {
+    line-height: 1em !important;
+    margin-bottom: 10px;
 }
 
 /*the container must be positioned relative:*/
@@ -2766,6 +2783,7 @@ textarea {
 .slick-arrow {
     height: 30px !important;
     width: 30px !important;
+    margin: 0 10px 0 10px;
 }
 
 .slick-prev:before,
@@ -2778,20 +2796,22 @@ textarea {
     display: block !important;
     position: absolute;
     top: 50%;
+    margin: 0;
+    padding: 0;
 }
 
 .slick-prev:before {
     border-left: 1px solid #444444;
     border-top: 1px solid #444444;
     transform: translate(-50%, -50%) rotate(-45deg);
-    left: 70%;
+    left: 130%;
 }
 
 .slick-next:before {
     border-right: 1px solid #444444;
     border-top: 1px solid #444444;
     transform: translate(-50%, -50%) rotate(45deg);
-    left: 30%;
+    left: -30%;
 }
 
 .rel {
@@ -2843,7 +2863,89 @@ textarea {
     color: #000 !important;
 }
 
+.about-area .genric-btn {
+    color: #A0522D !important;
+}
+
+.about-area .genric-btn:hover {
+    color: #fff !important;
+}
+
+.banner {
+    height: 100vh;
+}
+
+.banner h1 {
+    font-weight: 100;
+    margin-bottom: 20px;
+}
+
+.banner .sp-1,
+  .banner .sp-2 {
+    font-weight: 600;
+}
+
+.banner .sp-2 {
+    color: #A0522D;
+}
+
+.banner__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.banner__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 0;
+    height: 100%;
+}
+
+.banner__image {
+    height: 70%;
+    width: 100%;
+    display: block;
+    background: url(../img/sharifa.png) no-repeat center center/cover;
+}
+
+.none {
+    display: none;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+#name {
+    position: relative;
+}
+
+#phone {
+    position: relative;
+}
+
+.error {
+    position: absolute;
+    top: 100%;
+    left: 20px;
+}
+
 @media screen and (max-width: 768px) {
+    .section-gap {
+        padding: 30px 0;
+    }
+
     .mt-md {
         margin-top: 60px;
     }
@@ -2851,9 +2953,55 @@ textarea {
     .main-menubar a {
         color: #fff !important;
     }
+
+    .banner {
+        height: auto;
+    }
+
+    .banner__inner {
+        display: block;
+    }
+
+    .banner__image {
+        width: 300px;
+        height: 300px;
+        margin-top: 50px;
+    }
+
+    .banner__content {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
 }
 
 @media screen and (max-width: 992px) {
+    .banner {
+        height: auto;
+    }
+
+    .banner__inner {
+        display: block;
+    }
+
+    .banner__image {
+        width: 400px;
+        height: 400px;
+        margin-top: 70px;
+    }
+
+    .banner__content {
+        padding-top: 50px;
+        padding-bottom: 70px;
+    }
+
+    .banner-left {
+        margin-top: -10px;
+    }
+
+    .banner-right {
+        margin-top: -45px;
+    }
+
     .hauto {
         height: auto !important;
     }
