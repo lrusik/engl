@@ -4,6 +4,10 @@ const slidesToShowMobile = 1;
 const slidesToScrollMobile = 1;
 const autoplaySpeed = 0;
 
+/* debug varaibles */
+const DEMO = false;
+const TEST = 0;
+/* ./debug varaibles */
 
 (function (root, smoothScroll) {
   'use strict';
@@ -228,54 +232,100 @@ function show(showClass) {
 }
 
 function showError(err) {
-    show(err);
+    const error = document.querySelector(err);
+    const errors = document.querySelectorAll(".error");
+    for(let i =0; i<errors.length; i++) 
+        errors[i].classList.add('hide-op');
+
+    error.classList.remove('hide-op');
+    error.classList.add('shake');
+    setTimeout(()=> {
+        error.classList.remove('shake');
+    }, 150);
 }
 
 function show_thankyou_note() {
-
+    document.querySelector(".contact-area__thank").classList.remove('none');
+    document.querySelector(".contact-area__main").classList.add('none');
 }
 
 function start_form_animation() {
-
+    document.querySelector(".contact-form").classList.add('hide-op');
+    document.querySelector(".contact-area__loader").classList.remove('hide-op');    
 }
 
 function stop_form_animation() {
-
+    document.querySelector(".contact-area__loader").classList.add('hide-op');
 }
 
 
 function sendForm(event) {
     event.preventDefault();
-    
-    start_form_animation();
-    setTimeout(() => {
-        stop_form_animation();
-        // hide form
-        show_thankyou_note();
-    }, Math.random() * 400 + 700)
-
-    const url = "/api/submit";
+    const url = "/api/subscribe";
     const xhttp = new XMLHttpRequest();
-    const phone = document.querySelector("#phone").value;
-    const name = document.querySelector("#name").value;
-    const service = document.querySelector(".select-selected").value;
+    let phone = document.querySelector("#phone").value;
+    let name = document.querySelector("#name").value;
+    const service = document.querySelector(".select-selected").innerText;
     const message = document.querySelector("#message").value;
-    
+
+    let req;
+    if(TEST > 2){ //400 3
+        name = "name";
+        phone="";
+    } else if(TEST > 1){ //400 2
+        name = "";
+        phone="phone";
+    } else if(TEST > 0){ //200 1
+        name = "name";
+        phone="phone";
+    }
+
     if(name == "") {
-        showError('error__name-req');
+        showError('.error__name');
         return -1;
     }
 
     if(phone == "") {
-        showError('error__phone-req');
+        showError('.error__phone');
         return -1;
+    }
+
+    start_form_animation();
+    if(DEMO) {
+        setTimeout(() => {
+            stop_form_animation();
+            show_thankyou_note();
+        }, Math.random() * 400 + 700)
+        return;
+    }
+
+    xhttp.onload = function () {
+        if (xhttp.readyState === xhttp.DONE) {
+            if (xhttp.status === 200) {
+                stop_form_animation();
+                show_thankyou_note();
+            }
+            if (xhttp.status === 400 || xhttp.status === 500) {
+                document.querySelector(".contact-area h3").style.display = "block";
+                
+                stop_form_animation();
+                document.querySelector(".contact-form").classList.remove('hide-op');  
+            }
+        } 
+    };
+
+    
+    if(!TEST) {
+        req = "phone=" + phone + "&name=" + name + "&service=" + service + "&message= " + message;
+    } else {
+        req =  "phone=" + phone + "&name=" + name + + "&service=" + "service" + "&message= " + "message";
     }
 
     xhttp.open("POST", url, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("phone=" + mail + "name=" + name + "service=" + name + " message= " + message);
+        
+    xhttp.send(req);
 }
-
  
 $(document).ready(function(){
     document.addEventListener("click", closeAllSelect);

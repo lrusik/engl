@@ -2678,6 +2678,29 @@ textarea {
     display: block;
 }
 
+.contact-area__message {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    z-index: 100;
+    padding: 50px 100px;
+    border: 1px solid #f6d59e;
+    border-radius: 2px;
+    font-size: 30px;
+}
+
+.contact-area .preload {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.contact-area__loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -80%);
+}
+
 .contact__title {
     line-height: 1em !important;
     margin-bottom: 10px;
@@ -2935,10 +2958,216 @@ textarea {
     position: relative;
 }
 
+.common-input {
+    z-index: 1;
+}
+
+.shake {
+    -webkit-animation: shake .15s;
+    animation: shake .15s;
+}
+
+@-webkit-keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    20% {
+        transform: translate(-2px, 0px) rotate(1deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    60% {
+        transform: translate(-2px, 1px) rotate(0deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+
+    20% {
+        transform: translate(-2px, 0px) rotate(1deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    60% {
+        transform: translate(-2px, 1px) rotate(0deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
 .error {
     position: absolute;
-    top: 100%;
-    left: 20px;
+    top: calc(100% - 5px);
+    left: 35px;
+    background-color: white;
+    color: black;
+    border: 1px solid #cc4444;
+    pointer-events: none;
+    touch-action: none;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
+    padding: 7px 15px;
+    font-size: 15px;
+    z-index: 10;
+}
+
+.error__relative {
+    background-color: red;
+    width: 100%;
+    height: 100%;
+    z-index: 13;
+}
+
+.error__arrow {
+    content: '';
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background-color: #fff;
+    border-top: 1px solid #cc4444;
+    border-right: 1px solid #cc4444;
+    top: 0;
+    left: 10px;
+    transform: translate(50%, calc(-50% - 2px)) rotate(-45deg);
+    z-index: 12;
+}
+
+.lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 80px;
+    background-color: transparent;
+    z-index: 2;
+}
+
+.lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.lds-ellipsis div:nth-child(1) {
+    left: 12px;
+    -webkit-animation: lds-ellipsis1 0.6s infinite;
+    animation: lds-ellipsis1 0.6s infinite;
+    background-color: white !important;
+    background-color: black;
+}
+
+.lds-ellipsis div:nth-child(2) {
+    left: 12px;
+    -webkit-animation: lds-ellipsis2 0.6s infinite;
+    animation: lds-ellipsis2 0.6s infinite;
+    background-color: white !important;
+    background-color: blue;
+}
+
+.lds-ellipsis div:nth-child(3) {
+    left: 44px;
+    -webkit-animation: lds-ellipsis2 0.6s infinite;
+    animation: lds-ellipsis2 0.6s infinite;
+    background-color: white !important;
+    background-color: yellow;
+}
+
+.lds-ellipsis div:nth-child(4) {
+    left: 76px;
+    -webkit-animation: lds-ellipsis3 0.6s infinite;
+    animation: lds-ellipsis3 0.6s infinite;
+    background-color: white !important;
+    background-color: purple;
+}
+
+@-webkit-keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
+}
+
+@-webkit-keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(32px, 0);
+    }
+}
+
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(32px, 0);
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -3005,6 +3234,16 @@ textarea {
     .hauto {
         height: auto !important;
     }
+}
+
+.hide-op {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.contact-area h3 {
+    color: #ff2202;
+    display: none;
 }
 
 /*# sourceMappingURL=maps/main.css.map */

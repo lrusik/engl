@@ -48,10 +48,8 @@ app.post('/api/subscribe', async (req, res) =>  {
 
 	try {
   		await bot.telegram.sendMessage(process.env.RECEIVER, message)
-		console.log(req.body);
 		res.sendStatus(200);
 	} catch (err) {
-  		console.log(err)
 		res.sendStatus(500);
 	}
 });

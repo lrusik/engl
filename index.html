@@ -13,7 +13,8 @@
 	<meta name="keywords" content="">
 	<!-- meta character set -->
 	<meta charset="UTF-8">
-
+	
+	<link rel="icon" href="/favicon.ico">
 
 	<!-- Site Title -->
 	<title>Ledill English</title>
@@ -103,7 +104,7 @@
 		<div class="header-wrap">
 			<div class="header-top d-flex justify-content-between align-items-center">
 				<div class="logo">
-					<a href="/"><img src="img/img/sharifa.jpg" alt=""></a>
+					<a href="/"><img src="img/sharifa.jpg" alt=""></a>
 				</div>
 
 				<div class="main-menubar d-flex align-items-center">
@@ -380,49 +381,65 @@
 
 <section class="contact-area pt-100 pb-100 relative" id='form'>
 	<div class="overlay overlay-bg"></div>
-		<div class="container">
+		<div class="container none contact-area__thank">
+			<div class="row justify-content-center text-center">
+				<div class="contact-area__message">Thank you!</div>
+			</div>
+		</div>
+		
+		<div class="container contact-area__main">
 			<div class="row justify-content-center text-center">
 				<div class="single-contact col-lg-9 col-md-8">
 					<h2 class="text-white contact__title">Запишись на <span class="fw600">бесплатную</span> консультацию </h2>
 					<p class="text-white col-lg-8 mcenter mt-2">
 						Выявление текущего уровня владения языком и подбор программы в формате 20-минутной беседы
 					</p>
+					<h3>Извините, что то пошло не так...</h3>	
 				</div>
 			</div>
-			<form id="myForm" action="mail.php" method="post" class="contact-form">
-				<div class="row justify-content-center">
-					<div class="col-lg-5">
-						<input id="name" name="fname" placeholder="Имя" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Имя'" class="common-input mt-20" required="" type="text">
-						<div class="error error__name">
-							<span class="error__message error__name-req">Это поле обязательно</span>
-						</div>
-					</div>
-					<div class="col-lg-5">
-						<input id="phone" name="phone" placeholder="Номер телефона" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Номер телефона'" class="common-input mt-20" required="" type="phone">
-						<div class="error error__phone">
-							<span class="error__message error__phone-req">Это поле обязательно</span>
-						</div>
-					</div>
-					<div class="col-lg-10 mt-20">
-						<div class="custom-select">
-						  	<select>
-								<option value="0">Выберете услугу:</option>
-								<option value="1">Бесплатная консультация</option>
-								<option value="2">Уроки для beginner</option>
-								<option value="3">Уроки для intermediate</option>
-								<option value="4">Уроки для expert</option>
-						  	</select>
-						</div>
-					</div>
-					<div class="col-lg-10">
-						<textarea id="message" class="common-textarea mt-20" name="message" placeholder="Сообщение" onfocus="this.placeholder = 'Сообщение'" onblur="this.placeholder = 'Messege'" required=""></textarea>
+			<div class="relative">
+				<div class="contact-area__loader hide-op">
+					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 				</div>
-				<div class="col-lg-10 d-flex justify-content-end">
-					<button onclick="sendForm(event)" class="primary-btn white-bg d-inline-flex align-items-center mt-20"><span class="mr-10">Отправить</span><span class="lnr lnr-arrow-right"></span></button> <br>
+				<form id="myForm" action="mail.php" method="post" class="contact-form ">
+					<div class="row justify-content-center">
+						<div class="col-lg-5">
+							<input id="name" name="fname" placeholder="Имя" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Имя'" class="common-input mt-20" required="" type="text">
+							<div class="error error__name hide-op">
+								<div class="error__relative"></div>
+								<div class="error__arrow"></div>
+								<span class="error__message error__name-req">Это поле обязательно</span>
+							</div>
+						</div>
+						<div class="col-lg-5">
+							<input id="phone" name="phone" placeholder="Номер телефона" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Номер телефона'" class="common-input mt-20" required="" type="phone">
+							<div class="error error__phone hide-op">
+								<div class="error__relative"></div>
+								<div class="error__arrow"></div>
+								<span class="error__message error__name-req">Это поле обязательно</span>
+							</div>
+						</div>
+						<div class="col-lg-10 mt-20">
+							<div class="custom-select">
+							  	<select>
+									<option value="0">Выберете услугу:</option>
+									<option value="1">Бесплатная консультация</option>
+									<option value="2">Уроки для beginner</option>
+									<option value="3">Уроки для intermediate</option>
+									<option value="4">Уроки для expert</option>
+							  	</select>
+							</div>
+						</div>
+						<div class="col-lg-10">
+							<textarea id="message" class="common-textarea mt-20" name="message" placeholder="Сообщение" onfocus="this.placeholder = 'Сообщение'" onblur="this.placeholder = 'Messege'" required=""></textarea>
+					</div>
+					<div class="col-lg-10 d-flex justify-content-end">
+						<button onclick="sendForm(event)" class="primary-btn white-bg d-inline-flex align-items-center mt-20"><span class="mr-10">Отправить</span><span class="lnr lnr-arrow-right"></span></button> <br>
+					</div>
+					<div class="alert-msg"></div>
 				</div>
-				<div class="alert-msg"></div>
-			</div>
-		</form>
+			</form>
+		</div>
 	</div>
 </section>
 <!-- Start faq Area -->

@@ -8,11 +8,14 @@ const bot = new Telegraf(process.env.TOKEN)
 const express = require('express');
 const app = express(); 
 const bodyParser = require('body-parser')
+const cors = require('cors');
 
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "assets")));
+app.use(express.static(path.join(__dirname)));
 
 app.post('/api/subscribe', async (req, res) =>  {
+	console.log(req.body.name, req.body.phone);
 	if(!req.body.name || !req.body.phone) {
 		return res.status(400).send('Something broke!');
 	}
@@ -29,8 +32,8 @@ app.post('/api/subscribe', async (req, res) =>  {
 	}
 });
 
-app.get('*', (req, res) =>  {
-	res.sendFile(path.join(__dirname, "/testform.html"));
+app.get('/', (req, res) =>  {
+	res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.listen(80, () => {
